@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_home_white_36dp"
+        android:title="@string/home" />
+
+    <item
+        android:icon="@drawable/ic_search_white_36dp"
+        android:title="@string/search" />
+
+    <item
+        android:icon="@drawable/ic_access_time_white_36dp"
+        android:title="@string/ads" />
+
+
+</menu>

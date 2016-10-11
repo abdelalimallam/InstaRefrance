@@ -1,0 +1,13 @@
+<tabs>
+    <tab
+        icon="@drawable/ic_home_white_36dp"
+        id="@+id/home_tab" />
+    <tab
+        icon="@drawable/ic_search_white_36dp"
+        id="@+id/search_tab" />
+    <tab
+        icon="@drawable/ic_access_time_white_36dp"
+        id="@+id/ads_tab" />
+
+
+</tabs>

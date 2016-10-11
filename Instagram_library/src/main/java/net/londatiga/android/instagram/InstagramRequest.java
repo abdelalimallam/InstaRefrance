@@ -91,7 +91,7 @@ public class InstagramRequest {
 	 * 
 	 * @throws Exception If error occured.
 	 */
-	private String requestGet(String endpoint, List<NameValuePair> params) throws Exception {
+	public String requestGet(String endpoint, List<NameValuePair> params) throws Exception {
 		String requestUri = Cons.API_BASE_URL + ((endpoint.indexOf("/") == 0) ? endpoint : "/" + endpoint);
 		
 		return get(requestUri, params);				
@@ -189,8 +189,7 @@ public class InstagramRequest {
 	/**
 	 * Create http POST request to an instagram api endpoint. 
 	 * 
-	 * @param requestUri Api url
-	 * @param params Request parameters
+ 	 * @param params Request parameters
 	 * 	 
 	 * @return Api response in json format.
 	 * 

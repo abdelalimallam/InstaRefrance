@@ -1,8 +1,9 @@
-package com.abdelalimallam.instarefrance;
+package com.abdelalimallam.instarefrance.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
@@ -12,42 +13,67 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdelalimallam.instarefrance.R;
+import com.abdelalimallam.instarefrance.adapter.PhotoListAdapter;
+import com.squareup.picasso.Picasso;
+
 import net.londatiga.android.instagram.Instagram;
+import net.londatiga.android.instagram.InstagramRequest;
 import net.londatiga.android.instagram.InstagramSession;
 import net.londatiga.android.instagram.InstagramUser;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String CLIENT_ID = "0d03a5a67dea4e218dcb0331d986ed25";
+    private static final String CLIENT_SECRET = "911b8da08638457bbbd6f87f3c1deea8";
+    private static final String REDIRECT_URI = "http://www.searchplus.com";
     private InstagramSession mInstagramSession;
     private Instagram mInstagram;
-
     private ProgressBar mLoadingPb;
     private GridView mGridView;
+    private Instagram.InstagramAuthListener mAuthListener = new Instagram.InstagramAuthListener() {
+        @Override
+        public void onSuccess(InstagramUser user) {
+            finish();
 
-    private static final String CLIENT_ID = "your client id";
-    private static final String CLIENT_SECRET = "your client secret";
-    private static final String REDIRECT_URI = "your redirect uri";
+            startActivity(new Intent(MainActivity.this, MainActivity.class));
+        }
+
+        @Override
+        public void onError(String error) {
+            showToast(error);
+        }
+
+        @Override
+        public void onCancel() {
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mInstagram          = new Instagram(this, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
+        mInstagram = new Instagram(this, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
 
-        mInstagramSession   = mInstagram.getSession();
+        mInstagramSession = mInstagram.getSession();
 
         if (mInstagramSession.isActive()) {
             setContentView(R.layout.activity_user);
 
             InstagramUser instagramUser = mInstagramSession.getUser();
 
-            mLoadingPb  = (ProgressBar) findViewById(R.id.pb_loading);
-            mGridView   = (GridView) findViewById(R.id.gridView);
+            mLoadingPb = (ProgressBar) findViewById(R.id.pb_loading);
+            mGridView = (GridView) findViewById(R.id.gridView);
 
             ((TextView) findViewById(R.id.tv_name)).setText(instagramUser.fullName);
             ((TextView) findViewById(R.id.tv_username)).setText(instagramUser.username);
@@ -65,26 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
             ImageView userIv = (ImageView) findViewById(R.id.iv_user);
 
-            DisplayImageOptions displayOptions = new DisplayImageOptions.Builder()
-                    .showImageOnLoading(R.drawable.ic_user)
-                    .showImageForEmptyUri(R.drawable.ic_user)
-                    .showImageOnFail(R.drawable.ic_user)
-                    .cacheInMemory(true)
-                    .cacheOnDisc(false)
-                    .considerExifParams(true)
-                    .build();
+            Picasso.with(this).load(instagramUser.profilPicture).placeholder(R.drawable.ic_user).into(userIv);
 
-            ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this)
-                    .writeDebugLogs()
-                    .defaultDisplayImageOptions(displayOptions)
-                    .build();
-
-            ImageLoader imageLoader = ImageLoader.getInstance();
-            imageLoader.init(config);
-
-            AnimateFirstDisplayListener animate  = new AnimateFirstDisplayListener();
-
-            imageLoader.displayImage(instagramUser.profilPicture, userIv, animate);
 
             new DownloadTask().execute();
 
@@ -104,36 +112,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
     }
 
-    private Instagram.InstagramAuthListener mAuthListener = new Instagram.InstagramAuthListener() {
-        @Override
-        public void onSuccess(InstagramUser user) {
-            finish();
-
-            startActivity(new Intent(MainActivity.this, MainActivity.class));
-        }
-
-        @Override
-        public void onError(String error) {
-            showToast(error);
-        }
-    };
-
-    public static class AnimateFirstDisplayListener extends SimpleImageLoadingListener {
-
-        static final List<String> displayedImages = Collections.synchronizedList(new LinkedList<String>());
-
-        @Override
-        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-            if (loadedImage != null) {
-                ImageView imageView = (ImageView) view;
-                boolean firstDisplay = !displayedImages.contains(imageUri);
-                if (firstDisplay) {
-                    FadeInBitmapDisplayer.animate(imageView, 500);
-                    displayedImages.add(imageUri);
-                }
-            }
-        }
-    }
 
     public class DownloadTask extends AsyncTask<URL, Integer, Long> {
         ArrayList<String> photoList;
@@ -155,11 +133,11 @@ public class MainActivity extends AppCompatActivity {
                 params.add(new BasicNameValuePair("count", "10"));
 
                 InstagramRequest request = new InstagramRequest(mInstagramSession.getAccessToken());
-                String response          = request.requestGet("/users/self/feed", params);
+                String response = request.requestGet("/users/self/feed", params);
 
                 if (!response.equals("")) {
-                    JSONObject jsonObj  = (JSONObject) new JSONTokener(response).nextValue();
-                    JSONArray jsonData  = jsonObj.getJSONArray("data");
+                    JSONObject jsonObj = (JSONObject) new JSONTokener(response).nextValue();
+                    JSONArray jsonData = jsonObj.getJSONArray("data");
 
                     int length = jsonData.length();
 
@@ -193,9 +171,9 @@ public class MainActivity extends AppCompatActivity {
 
                 getWindowManager().getDefaultDisplay().getMetrics(dm);
 
-                int width   = (int) Math.ceil((double) dm.widthPixels / 2);
-                width=width-50;
-                int height  = width;
+                int width = (int) Math.ceil((double) dm.widthPixels / 2);
+                width = width - 50;
+                int height = width;
 
                 PhotoListAdapter adapter = new PhotoListAdapter(MainActivity.this);
 
