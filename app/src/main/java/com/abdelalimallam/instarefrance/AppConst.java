@@ -2,7 +2,7 @@ package com.abdelalimallam.instarefrance;
 
 
 public class AppConst {
-    public static final String BASE_URL = "http://instag.tkaml.org/api/v1/";
+    public static final String BASE_URL = "http://instag.tkaml.org/api/v1";
 
     public static final String MAIN = "";
      public static final String IMAGE_URL ="";
