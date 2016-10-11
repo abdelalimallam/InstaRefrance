@@ -4,6 +4,7 @@ import com.abdelalimallam.instarefrance.model.UsersResponse;
 
 import retrofit.Callback;
 import retrofit.http.GET;
+import retrofit.http.POST;
 
 /**
  * Created by Moh Nage7 on 09/10/2016.
@@ -11,7 +12,7 @@ import retrofit.http.GET;
 
 public interface ApiInterface {
 
-    @GET("user/users-list")
+    @POST("/user/users-list")
     void getUsersList(Callback<UsersResponse> callback);
 
 }
