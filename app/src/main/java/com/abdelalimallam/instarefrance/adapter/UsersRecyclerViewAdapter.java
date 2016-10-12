@@ -1,5 +1,6 @@
 package com.abdelalimallam.instarefrance.adapter;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.LayerDrawable;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.abdelalimallam.instarefrance.R;
 import com.abdelalimallam.instarefrance.model.User;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -20,8 +22,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecyclerViewAdapter.ViewHolder> {
 
     private final ArrayList<User> mValues;
+    private Activity mContext;
 
-    public UsersRecyclerViewAdapter(ArrayList<User> items) {
+    public UsersRecyclerViewAdapter(ArrayList<User> items, Activity context) {
+        mContext = context;
         mValues = items;
 
     }
@@ -29,15 +33,21 @@ public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecycler
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_item, parent, false);
+                .inflate(R.layout.users_recycle_tem, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.userName.setText(mValues.get(position).getName());
-        holder.followersNumber.setText(mValues.get(position).getFollowers_count());
+        User currentUser = mValues.get(position);
+        holder.userName.setText(currentUser.getName());
+        holder.followersNumber.setText(currentUser.getFollowers_count());
+        if (currentUser.getPhoto().isEmpty()) {
+            holder.userImage.setImageResource(R.drawable.ic_user);
+        } else {
+            Picasso.with(mContext).load(currentUser.getPhoto()).into(holder.userImage);
 
+        }
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

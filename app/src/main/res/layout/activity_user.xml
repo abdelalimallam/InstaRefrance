@@ -17,6 +17,13 @@
 		android:layout_below="@+id/iv_user"
         android:layout_marginTop="@dimen/activity_vertical_margin"
         android:text="Logout" />
+	<Button
+		android:id="@+id/btn_getinfo"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/btn_logout"
+		android:layout_marginTop="@dimen/activity_vertical_margin"
+		android:text="get information" />
     
     <RelativeLayout
         android:layout_width="match_parent"

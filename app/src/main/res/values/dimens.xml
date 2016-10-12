@@ -12,4 +12,100 @@
     <dimen name="image_width">100dp</dimen>
     <dimen name="half_height">40dp</dimen>
 
+
+    <!--user profile-->
+
+    <dimen name="userprofile_layout_reli_upperlayout_height">180dp</dimen>
+    <dimen name="userprofile_layout_reli_image_profilepicture_height">90dp</dimen>
+    <dimen name="userprofile_layout_reli_image_profilepicture_width">90dp</dimen>
+    <dimen name="userprofile_layout_reli_image_profilepicture_borerwidth">1dp</dimen>
+
+
+    <dimen name="userprofile_layout_reli_username_layout_height">35dp</dimen>
+    <dimen name="userprofile_layout_reli_username_layout_margintop">15dp</dimen>
+    <dimen name="userprofile_layout_reli_username_layout_marginleft">15dp</dimen>
+    <dimen name="userprofile_layout_reli_username_layout_marginright">15dp</dimen>
+
+
+    <dimen name="userprofile_layout_img_username_icon_width">18dp</dimen>
+    <dimen name="userprofile_layout_img_username_icon_height">18dp</dimen>
+    <dimen name="userprofile_layout_img_username_icon_marginleft">5dp</dimen>
+    <dimen name="userprofile_layout_img_username_text_marginbottom">5dp</dimen>
+
+
+    <dimen name="userprofile_layout_edit_username_text_paddingleft">10dp</dimen>
+    <dimen name="userprofile_layout_edit_username_text_paddingright">10dp</dimen>
+    <dimen name="userprofile_layout_edit_username_text_textsize">14sp</dimen>
+    <dimen name="userprofile_layout_edit_username_text_marginbottom">5dp</dimen>
+
+    <dimen name="userprofile_layout_view_username_separateivew_height">1dp</dimen>
+    <dimen name="userprofile_layout_view_username_separateivew_margintop">5dp</dimen>
+
+
+    <dimen name="userprofile_layout_reli_email_layout_height">35dp</dimen>
+    <dimen name="userprofile_layout_reli_email_layout_margintop">15dp</dimen>
+    <dimen name="userprofile_layout_reli_email_layout_marginleft">15dp</dimen>
+    <dimen name="userprofile_layout_reli_email_layout_marginright">15dp</dimen>
+
+
+    <dimen name="userprofile_layout_img_email_icon_width">18dp</dimen>
+    <dimen name="userprofile_layout_img_email_icon_height">18dp</dimen>
+    <dimen name="userprofile_layout_img_email_icon_marginleft">5dp</dimen>
+    <dimen name="userprofile_layout_img_email_icon_marginbottom">5dp</dimen>
+
+
+    <dimen name="userprofile_layout_edit_email_text_paddingleft">10dp</dimen>
+    <dimen name="userprofile_layout_edit_email_text_paddingright">10dp</dimen>
+    <dimen name="userprofile_layout_edit_email_text_textsize">14sp</dimen>
+    <dimen name="userprofile_layout_edit_email_text_marginbottom">3dp</dimen>
+
+
+    <dimen name="userprofile_layout_view_email_separateivew_height">1dp</dimen>
+    <dimen name="userprofile_layout_view_email_separateivew_margintop">5dp</dimen>
+
+
+    <dimen name="userprofile_layout_reli_password_layout_height">35dp</dimen>
+    <dimen name="userprofile_layout_reli_password_layout_margintop">15dp</dimen>
+    <dimen name="userprofile_layout_reli_password_layout_marginleft">15dp</dimen>
+    <dimen name="userprofile_layout_reli_password_layout_marginright">15dp</dimen>
+
+
+    <dimen name="userprofile_layout_img_password_icon_width">18dp</dimen>
+    <dimen name="userprofile_layout_img_password_icon_height">18dp</dimen>
+    <dimen name="userprofile_layout_img_password_icon_marginleft">5dp</dimen>
+    <dimen name="userprofile_layout_img_passowrd_icon_marginbottom">5dp</dimen>
+
+
+    <dimen name="userprofile_layout_edit_password_text_paddingleft">10dp</dimen>
+    <dimen name="userprofile_layout_edit_password_text_paddingright">10dp</dimen>
+    <dimen name="userprofile_layout_edit_password_text_textsize">14sp</dimen>
+    <dimen name="userprofile_layout_edit_passowrd_text_marginbottom">3dp</dimen>
+
+
+    <dimen name="userprofile_layout_view_password_separateivew_height">1dp</dimen>
+    <dimen name="userprofile_layout_view_password_separateivew_margintop">5dp</dimen>
+
+
+    <dimen name="userprofile_layout_reli_country_layout_height">35dp</dimen>
+    <dimen name="userprofile_layout_reli_country_layout_margintop">15dp</dimen>
+    <dimen name="userprofile_layout_reli_country_layout_marginleft">15dp</dimen>
+    <dimen name="userprofile_layout_reli_country_layout_marginright">15dp</dimen>
+
+
+    <dimen name="userprofile_layout_img_country_icon_width">18dp</dimen>
+    <dimen name="userprofile_layout_img_country_icon_height">18dp</dimen>
+    <dimen name="userprofile_layout_img_country_icon_marginleft">5dp</dimen>
+    <dimen name="userprofile_layout_img_country_icon_marginbottom">5dp</dimen>
+
+
+    <dimen name="userprofile_layout_edit_country_text_paddingleft">10dp</dimen>
+    <dimen name="userprofile_layout_edit_country_text_paddingright">10dp</dimen>
+    <dimen name="userprofile_layout_edit_country_text_textsize">14sp</dimen>
+    <dimen name="userprofile_layout_edit_country_text_marginbottom">3dp</dimen>
+
+
+    <dimen name="userprofile_layout_view_country_separateivew_height">1dp</dimen>
+    <dimen name="userprofile_layout_view_country_separateivew_margintop">5dp</dimen>
+
+
 </resources>

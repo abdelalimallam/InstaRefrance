@@ -1,5 +1,7 @@
 package com.abdelalimallam.instarefrance.model;
 
+import android.os.Parcel;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -11,6 +13,8 @@ public class User {
     private String id;
     @SerializedName("name")
     private String name;
+    @SerializedName("email")
+    private String email;
     @SerializedName("instagram_link")
     private String instagram_link;
     @SerializedName("followers_count")
@@ -30,9 +34,10 @@ public class User {
     @SerializedName("updated_at")
     private String updated_at;
 
-    public User(String id, String name, String instagram_link, String followers_count, String photo, String about_account, String rate, String female_to_male_rate_image, String ar_en, String created_at, String updated_at) {
+    public User(String id, String name, String email, String instagram_link, String followers_count, String photo, String about_account, String rate, String female_to_male_rate_image, String ar_en, String created_at, String updated_at) {
         this.id = id;
         this.name = name;
+        this.email = email;
         this.instagram_link = instagram_link;
         this.followers_count = followers_count;
         this.photo = photo;
@@ -42,6 +47,36 @@ public class User {
         this.ar_en = ar_en;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+//    public User(String name, String instagram_link, String email) {
+//        this.name = name;
+//        this.instagram_link = instagram_link;
+//        this.email = email;
+//    }
+
+    protected User(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        email = in.readString();
+        instagram_link = in.readString();
+        followers_count = in.readString();
+        photo = in.readString();
+        about_account = in.readString();
+        rate = in.readString();
+        female_to_male_rate_image = in.readString();
+        ar_en = in.readString();
+        created_at = in.readString();
+        updated_at = in.readString();
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getId() {
@@ -131,4 +166,5 @@ public class User {
     public void setUpdated_at(String updated_at) {
         this.updated_at = updated_at;
     }
+
 }

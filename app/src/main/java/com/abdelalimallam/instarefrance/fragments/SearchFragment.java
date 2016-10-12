@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.abdelalimallam.instarefrance.R;
 
 public class SearchFragment extends Fragment {
-
+    RecyclerView recyclerView;
     public SearchFragment() {
     }
 
@@ -33,12 +33,11 @@ public class SearchFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            recyclerView = (RecyclerView) view;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             // recyclerView.setAdapter(new UsersRecyclerViewAdapter(, ));
         }
         return view;
     }
-
 
 }

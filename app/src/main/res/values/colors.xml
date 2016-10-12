@@ -17,4 +17,8 @@
         <item name="tab_2">#00886A</item>
         <item name="tab_3">#FF4081</item>
     </array>
+
+
+    <color name="blue_semi_transparent">#805677fc</color>
+
 </resources>

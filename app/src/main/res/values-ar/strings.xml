@@ -26,16 +26,15 @@
 
 
     <!-- time format class="TimeCalculator"-->
-    <string name="time_format">yyyy-MM-dd HH:mm:ss</string>
-    <string name="now">now</string>
-    <string name="minute_ago">minute ago</string>
-    <string name="minute">minutes</string>
-    <string name="hour_ago">hour ago </string>
-    <string name="hour">hours</string>
-    <string name="yesterday">yesterday</string>
-    <string name="day">days</string>
+    <string name="time_format">yyyy-MM-dd\'T\'HH:mm:ss</string>
+    <string name="now">الان</string>
+    <string name="minute_ago">" منذ دقيقة"</string>
+    <string name="minute">" دقيقة"</string>
+    <string name="hour_ago">" منذ ساعة"</string>
+    <string name="hour">" ساعة"</string>
+    <string name="yesterday">الامس</string>
+    <string name="day">" يوم "</string>
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
-    <string name="title_activity_registeration">Registeration</string>
 
 </resources>

@@ -1,7 +1,7 @@
 package com.abdelalimallam.instarefrance.retrofit;
 
 
- import com.abdelalimallam.instarefrance.AppConst;
+ import com.abdelalimallam.instarefrance.utils.AppConst;
  import com.squareup.okhttp.OkHttpClient;
 
 import java.util.concurrent.TimeUnit;
@@ -21,11 +21,11 @@ public class APIService {
     }
 
 
-    public static <S> S createService(Class<S> serviceClass) {
+    public static <S> S createService(Class<S> serviceClass,String url) {
 
 
         RestAdapter.Builder builder = new RestAdapter.Builder()
-                .setEndpoint(AppConst.BASE_URL);
+                .setEndpoint(url);
 
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setReadTimeout(AppConst.TIMEOUT, TimeUnit.MINUTES);

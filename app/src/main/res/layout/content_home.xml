@@ -18,7 +18,9 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"
+        app:selectedBackgroundVisible="false"
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

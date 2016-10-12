@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <RelativeLayout
+        android:id="@+id/reli_userprofile_layout_upperarea"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/userprofile_layout_reli_upperlayout_height"
+        android:background="#3291da">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_userprofile_profile_picture"
+            android:layout_width="@dimen/userprofile_layout_reli_image_profilepicture_width"
+            android:layout_height="@dimen/userprofile_layout_reli_image_profilepicture_height"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_user"
+            app:civ_border_color="#70394350"
+            app:civ_border_width="@dimen/userprofile_layout_reli_image_profilepicture_borerwidth" />
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/reli_userprofile_layout_upperarea">
+
+
+        <RelativeLayout
+            android:id="@+id/reli_userprofile_layout_username_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/userprofile_layout_reli_username_layout_height"
+            android:layout_marginLeft="@dimen/userprofile_layout_reli_username_layout_marginleft"
+            android:layout_marginRight="@dimen/userprofile_layout_reli_username_layout_marginright"
+            android:layout_marginTop="@dimen/userprofile_layout_reli_username_layout_margintop"
+
+            >
+
+
+            <ImageView
+                android:id="@+id/img_userprofile_layout_username_icon"
+                android:layout_width="@dimen/userprofile_layout_img_username_icon_width"
+                android:layout_height="@dimen/userprofile_layout_img_username_icon_height"
+                android:layout_above="@+id/view_userprofile_layout_username_view"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/userprofile_layout_img_username_text_marginbottom"
+                android:layout_marginLeft="@dimen/userprofile_layout_img_username_icon_marginleft"
+                android:src="@drawable/username_icon" />
+
+
+            <TextView
+                android:id="@+id/edit_userprofile_layout_usernme_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/view_userprofile_layout_username_view"
+                android:layout_marginBottom="@dimen/userprofile_layout_edit_username_text_marginbottom"
+                android:layout_toRightOf="@+id/img_userprofile_layout_username_icon"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="left|center_vertical"
+                android:inputType="text|textPersonName"
+                android:paddingLeft="@dimen/userprofile_layout_edit_username_text_paddingleft"
+                android:paddingRight="@dimen/userprofile_layout_edit_username_text_paddingright"
+                android:text=""
+                android:textColor="#3291da"
+                android:textSize="@dimen/userprofile_layout_edit_username_text_textsize" />
+
+
+            <View
+                android:id="@+id/view_userprofile_layout_username_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/userprofile_layout_view_username_separateivew_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/userprofile_layout_view_country_separateivew_margintop"
+                android:background="#dce9f3" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/reli_userprofile_layout_email_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/userprofile_layout_reli_email_layout_height"
+            android:layout_below="@+id/reli_userprofile_layout_username_layout"
+            android:layout_marginLeft="@dimen/userprofile_layout_reli_email_layout_marginleft"
+            android:layout_marginRight="@dimen/userprofile_layout_reli_email_layout_marginright"
+            android:layout_marginTop="@dimen/userprofile_layout_reli_email_layout_margintop">
+
+
+            <ImageView
+                android:id="@+id/img_userprofile_layout_email_icon"
+                android:layout_width="@dimen/userprofile_layout_img_email_icon_width"
+                android:layout_height="@dimen/userprofile_layout_img_email_icon_height"
+                android:layout_above="@+id/view_userprofile_layout_email_view"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/userprofile_layout_img_email_icon_marginbottom"
+                android:layout_marginLeft="@dimen/userprofile_layout_img_email_icon_marginleft"
+                android:src="@drawable/email_icon" />
+
+
+            <TextView
+                android:id="@+id/edit_userprofile_layout_email_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/view_userprofile_layout_email_view"
+                android:layout_marginBottom="@dimen/userprofile_layout_edit_email_text_marginbottom"
+                android:layout_toRightOf="@+id/img_userprofile_layout_email_icon"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="left|center_vertical"
+                android:inputType="text|textPersonName"
+                android:paddingLeft="@dimen/userprofile_layout_edit_email_text_paddingleft"
+                android:paddingRight="@dimen/userprofile_layout_edit_email_text_paddingright"
+                android:text=""
+                android:textColor="#3291da"
+                android:textSize="@dimen/userprofile_layout_edit_email_text_textsize" />
+
+
+            <View
+                android:id="@+id/view_userprofile_layout_email_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/userprofile_layout_view_email_separateivew_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/userprofile_layout_view_email_separateivew_margintop"
+                android:background="#dce9f3" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/reli_userprofile_layout_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/userprofile_layout_reli_password_layout_height"
+            android:layout_below="@+id/reli_userprofile_layout_email_layout"
+            android:layout_marginLeft="@dimen/userprofile_layout_reli_password_layout_marginleft"
+            android:layout_marginRight="@dimen/userprofile_layout_reli_password_layout_marginright"
+            android:layout_marginTop="@dimen/userprofile_layout_reli_password_layout_margintop">
+
+
+            <ImageView
+                android:id="@+id/img_userprofile_layout_password_icon"
+                android:layout_width="@dimen/userprofile_layout_img_password_icon_width"
+                android:layout_height="@dimen/userprofile_layout_img_password_icon_height"
+                android:layout_above="@+id/view_userprofile_layout_password_view"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/userprofile_layout_img_passowrd_icon_marginbottom"
+                android:layout_marginLeft="@dimen/userprofile_layout_img_password_icon_marginleft"
+                android:src="@drawable/password_icon" />
+
+
+            <TextView
+                android:id="@+id/edit_userprofile_layout_password_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/view_userprofile_layout_password_view"
+                android:layout_marginBottom="@dimen/userprofile_layout_edit_passowrd_text_marginbottom"
+                android:layout_toRightOf="@+id/img_userprofile_layout_password_icon"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="left|center_vertical"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/userprofile_layout_edit_password_text_paddingleft"
+                android:paddingRight="@dimen/userprofile_layout_edit_password_text_paddingright"
+                android:text=""
+                android:textColor="#3291da"
+                android:textSize="@dimen/userprofile_layout_edit_password_text_textsize"
+
+                />
+
+
+            <View
+                android:id="@+id/view_userprofile_layout_password_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/userprofile_layout_view_password_separateivew_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/userprofile_layout_view_password_separateivew_margintop"
+                android:background="#dce9f3" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/reli_userprofile_layout_country_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/userprofile_layout_reli_country_layout_height"
+            android:layout_below="@+id/reli_userprofile_layout_password_layout"
+            android:layout_marginLeft="@dimen/userprofile_layout_reli_country_layout_marginleft"
+            android:layout_marginRight="@dimen/userprofile_layout_reli_country_layout_marginright"
+            android:layout_marginTop="@dimen/userprofile_layout_reli_country_layout_margintop">
+
+
+            <ImageView
+                android:id="@+id/img_userprofile_layout_country_icon"
+                android:layout_width="@dimen/userprofile_layout_img_country_icon_width"
+                android:layout_height="@dimen/userprofile_layout_img_country_icon_height"
+                android:layout_above="@+id/view_userprofile_layout_country_view"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/userprofile_layout_img_country_icon_marginbottom"
+                android:layout_marginLeft="@dimen/userprofile_layout_img_country_icon_marginleft"
+                android:src="@drawable/country_icon" />
+
+
+            <TextView
+                android:id="@+id/edit_userprofile_layout_country_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/view_userprofile_layout_country_view"
+                android:layout_marginBottom="@dimen/userprofile_layout_edit_country_text_marginbottom"
+                android:layout_toRightOf="@+id/img_userprofile_layout_country_icon"
+                android:background="@android:color/transparent"
+                android:editable="false"
+                android:gravity="left|center_vertical"
+                android:inputType="text|textPersonName"
+                android:paddingLeft="@dimen/userprofile_layout_edit_country_text_paddingleft"
+                android:paddingRight="@dimen/userprofile_layout_edit_country_text_paddingright"
+                android:text=""
+                android:textColor="#3291da"
+                android:textSize="@dimen/userprofile_layout_edit_country_text_textsize" />
+
+
+            <View
+                android:id="@+id/view_userprofile_layout_country_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/userprofile_layout_view_country_separateivew_height"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/userprofile_layout_view_country_separateivew_margintop"
+                android:background="#dce9f3"
+                android:visibility="invisible" />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
