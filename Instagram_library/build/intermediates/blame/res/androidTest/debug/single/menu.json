@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\Android clients Workspace\\Abdulah el 3ofy\\InstaRefrance\\Instagram_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\main.xml",
+        "source": "D:\\Android clients Workspace\\Abdulah el 3ofy\\InstaRefrance\\Instagram_library\\build\\intermediates\\bundles\\debug\\res\\menu\\main.xml"
+    },
+    {
         "merged": "E:\\Work\\AndroidStudioWorkSpace\\Git\\InstaRefrance\\Instagram_library\\build\\intermediates\\res\\merged\\androidTest\\debug\\menu\\main.xml",
         "source": "E:\\Work\\AndroidStudioWorkSpace\\Git\\InstaRefrance\\Instagram_library\\build\\intermediates\\bundles\\debug\\res\\menu\\main.xml"
     }
