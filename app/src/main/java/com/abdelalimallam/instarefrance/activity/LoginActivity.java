@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdelalimallam.instarefrance.M;
 import com.abdelalimallam.instarefrance.R;
 import com.abdelalimallam.instarefrance.adapter.PhotoListAdapter;
 import com.abdelalimallam.instarefrance.model.CurrentUserResponse;
@@ -58,22 +59,29 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onSuccess(InstagramUser user) {
-         //   AppConst.user = user;
-            finish();
+            //   AppConst.user = user;
+
+            //Show Loading Dialog
+            M.showLoadingDialog(LoginActivity.this);
             retrofitAPI.getCurrentUser(user.accessToken, new Callback<CurrentUserResponse>() {
 
 
                 @Override
                 public void success(CurrentUserResponse currentUserResponse, Response response) {
                     Log.d("CurrentUser", currentUserResponse.toString());
+                    M.setUser(currentUserResponse, LoginActivity.this);
+                    M.hideLoadingDialog();
+
                 }
 
                 @Override
                 public void failure(RetrofitError error) {
                     Log.d("failure", error.toString());
+                    M.hideLoadingDialog();
 
                 }
             });
+            finish();
 
             startActivity(new Intent(LoginActivity.this, LoginActivity.class));
         }
