@@ -3,10 +3,11 @@ package com.abdelalimallam.instarefrance.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Moh Nage7 on 09/10/2016.
+ * Created by Adelalim on 10/12/2016.
  */
 
 public class Ads {
+
     @SerializedName("id")
     private String id;
     @SerializedName("name")
