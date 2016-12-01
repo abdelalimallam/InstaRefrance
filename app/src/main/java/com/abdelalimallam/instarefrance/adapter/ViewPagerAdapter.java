@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
 import com.abdelalimallam.instarefrance.fragments.AdsFragment;
+import com.abdelalimallam.instarefrance.fragments.CategoryFragment;
 import com.abdelalimallam.instarefrance.fragments.SearchFragment;
 import com.abdelalimallam.instarefrance.fragments.UsersFragment;
 
@@ -25,8 +26,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
         fragments.clear();
         fragments.add(UsersFragment.newInstance());
+        //fragments.add(CategoryFragment.newInstance());
+
         fragments.add(SearchFragment.newInstance());
-        fragments.add(AdsFragment.newInstance());
+       // fragments.add(AdsFragment.newInstance());
     }
 
     @Override
@@ -53,4 +56,5 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getCurrentFragment() {
         return currentFragment;
     }
+
 }

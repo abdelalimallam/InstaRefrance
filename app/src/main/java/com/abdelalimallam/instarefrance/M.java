@@ -17,13 +17,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.abdelalimallam.instarefrance.model.CurrentUser;
 import com.abdelalimallam.instarefrance.model.CurrentUserResponse;
+import com.abdelalimallam.instarefrance.model.NormalUser;
+import com.abdelalimallam.instarefrance.model.User;
 import com.abdelalimallam.instarefrance.utils.AppConst;
 import com.google.gson.Gson;
 
+import net.londatiga.android.instagram.InstagramSession;
+
 import java.util.ArrayList;
 import java.util.Locale;
-
 
 
 public class M {
@@ -135,7 +139,7 @@ public class M {
         setToken(null, mContext);
     }
 
-    public static boolean setUser(CurrentUserResponse userEntity, Context mContext) {
+    public static boolean setUser(CurrentUser userEntity, Context mContext) {
         mSharedPreferences = mContext.getSharedPreferences("settings", 0);
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         Gson gson = new Gson();
@@ -144,14 +148,33 @@ public class M {
         return editor.commit();
     }
 
-    public static CurrentUserResponse getUser(Context mContext) {
+    public static CurrentUser getUser(Context mContext) {
         mSharedPreferences = mContext.getSharedPreferences("settings", 0);
         String user = mSharedPreferences.getString("User", "");
         Gson gson = new Gson();
 
 
-        return gson.fromJson(user, CurrentUserResponse.class);
+        return gson.fromJson(user, CurrentUser.class);
     }
+
+    public static boolean setNormalUser(NormalUser user, Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        SharedPreferences.Editor editor = mSharedPreferences.edit();
+        Gson gson = new Gson();
+        String user1 = gson.toJson(user);
+        editor.putString("User", user1);
+        return editor.commit();
+    }
+
+    public static NormalUser getNormalUser(Context mContext) {
+        mSharedPreferences = mContext.getSharedPreferences("settings", 0);
+        String user = mSharedPreferences.getString("User", "");
+        Gson gson = new Gson();
+
+
+        return gson.fromJson(user, NormalUser.class);
+    }
+
 
     public static boolean isValidUrl(String text) {
         return Patterns.WEB_URL.matcher(text).matches();

@@ -37,5 +37,7 @@
     <string name="day">" يوم "</string>
     <string name="sign_in">Sign in</string>
     <string name="register">Register</string>
+    <string name="logout">Logout</string>
+    <string name="profile">Profile</string>
 
 </resources>

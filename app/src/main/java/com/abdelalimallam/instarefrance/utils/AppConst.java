@@ -7,7 +7,7 @@ public class AppConst {
     public static final String TAG = "InstaAPP";
 
     public static final String BASE_URL = "http://instag.tkaml.org/api/v1";
-    public static final String INSTAGRAM_API = "https://api.instagram.com/v1/";
+    public static final String INSTAGRAM_API = "https://api.instagram.com/v1";
 
     public static InstagramUser user;
     public static final String MAIN = "";

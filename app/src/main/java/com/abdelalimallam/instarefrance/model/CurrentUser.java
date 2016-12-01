@@ -2,7 +2,7 @@ package com.abdelalimallam.instarefrance.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Moh Nage7 on 12/10/2016.
@@ -21,25 +21,25 @@ public class CurrentUser {
     private String profile_picture;
     @SerializedName("bio")
     private String about_account;
-
-    public String[] getCounts() {
-        return counts;
-    }
-
-    public void setCounts(String[] counts) {
-        this.counts = counts;
-    }
-
     @SerializedName("counts")
-    private String[] counts;
+    private Counts counts;
 
-    public CurrentUser(String id, String username, String full_name, String followers_count, String profile_picture, String about_account) {
+    public CurrentUser(String id, String username, String full_name, String followers_count, String profile_picture, String about_account, Counts counts) {
         this.id = id;
         this.username = username;
         this.full_name = full_name;
         this.followers_count = followers_count;
         this.profile_picture = profile_picture;
         this.about_account = about_account;
+        this.counts = counts;
+    }
+
+    public Counts getCounts() {
+        return counts;
+    }
+
+    public void setCounts(Counts counts) {
+        this.counts = counts;
     }
 
     public String getId() {

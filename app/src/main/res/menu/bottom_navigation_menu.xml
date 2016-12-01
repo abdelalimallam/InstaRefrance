@@ -8,9 +8,7 @@
         android:icon="@drawable/ic_search_white_36dp"
         android:title="@string/search" />
 
-    <item
-        android:icon="@drawable/ic_access_time_white_36dp"
-        android:title="@string/ads" />
+
 
 
 </menu>

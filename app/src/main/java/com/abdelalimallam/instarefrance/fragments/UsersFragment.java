@@ -14,8 +14,8 @@ import com.abdelalimallam.instarefrance.R;
 import com.abdelalimallam.instarefrance.adapter.UsersRecyclerViewAdapter;
 import com.abdelalimallam.instarefrance.model.User;
 import com.abdelalimallam.instarefrance.model.UsersResponse;
-import com.abdelalimallam.instarefrance.retrofit.APIService;
-import com.abdelalimallam.instarefrance.retrofit.ApiInterface;
+import com.abdelalimallam.instarefrance.server.APIService;
+import com.abdelalimallam.instarefrance.server.ApiInterface;
 import com.abdelalimallam.instarefrance.utils.AppConst;
 
 import java.util.ArrayList;

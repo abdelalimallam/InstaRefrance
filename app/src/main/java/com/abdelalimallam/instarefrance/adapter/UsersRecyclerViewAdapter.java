@@ -33,7 +33,7 @@ public class UsersRecyclerViewAdapter extends RecyclerView.Adapter<UsersRecycler
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.users_recycle_tem, parent, false);
+                .inflate(R.layout.fragment_users_recycle_item, parent, false);
         return new ViewHolder(view);
     }
 

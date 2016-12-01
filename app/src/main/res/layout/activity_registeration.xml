@@ -76,20 +76,7 @@
                     />
 
             </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/instagram_link"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Instagram account link"
-                    android:inputType="text"
-                    android:maxLines="2"
-                    />
-
-            </android.support.design.widget.TextInputLayout>
             <Button
                 android:id="@+id/email_register_button"
                 style="?android:textAppearanceSmall"

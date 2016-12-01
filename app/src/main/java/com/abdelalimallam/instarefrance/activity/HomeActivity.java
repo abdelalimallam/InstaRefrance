@@ -1,5 +1,7 @@
 package com.abdelalimallam.instarefrance.activity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -9,14 +11,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.abdelalimallam.instarefrance.M;
 import com.abdelalimallam.instarefrance.R;
 import com.abdelalimallam.instarefrance.adapter.ViewPagerAdapter;
-import com.abdelalimallam.instarefrance.model.User;
+import com.abdelalimallam.instarefrance.model.CurrentUser;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
@@ -25,27 +30,31 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     CoordinatorLayout coordinatorLayout;
+    FloatingActionButton fab;
+    CurrentUser currentUser;
     private int[] tabColors;
     private AHBottomNavigationAdapter navigationAdapter;
     private ArrayList<AHBottomNavigationItem> bottomNavigationItems = new ArrayList<>();
     private AHBottomNavigation bottomNavigation;
     private AHBottomNavigationViewPager viewPager;
     private ViewPagerAdapter adapter;
-    FloatingActionButton fab;
-    User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        currentUser = getIntent().getParcelableExtra("user");
+        currentUser = M.getUser(HomeActivity.this);
+
         initUI();
 
     }
 
+    @SuppressLint("SetTextI18n")
     void initUI() {
         // fragment pager
         viewPager = (AHBottomNavigationViewPager) findViewById(R.id.view_pager);
@@ -57,7 +66,14 @@ public class HomeActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.hide();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        // fab.hide();
+
         /// navigation drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,18 +83,43 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // add header to navigation view
+        LinearLayout navHeader = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.nav_header_home, null);
+        navigationView.addHeaderView(navHeader);
+
+        CircleImageView userImageView = (CircleImageView) navHeader.findViewById(R.id.userImageView);
+        TextView userFullName = (TextView) navHeader.findViewById(R.id.userRealName);
+        TextView userUserName = (TextView) navHeader.findViewById(R.id.userUserName);
+        if (currentUser.getProfile_picture().isEmpty()) {
+            userImageView.setImageResource(R.drawable.ic_user);
+        } else {
+            Picasso.with(this).load(currentUser.getProfile_picture()).into(userImageView);
+
+        }
+        userFullName.setText(currentUser.getFull_name());
+        userUserName.setText("@" + currentUser.getUsername());
+
+        navHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+            }
+        });
+
+
         // bottom navigation
         bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottomBar);
         tabColors = getApplicationContext().getResources().getIntArray(R.array.tab_colors);
         navigationAdapter = new AHBottomNavigationAdapter(this, R.menu.bottom_navigation_menu);
         navigationAdapter.setupWithBottomNavigation(bottomNavigation, tabColors);
-        // bottomNavigation.setColored(true);
+        //bottomNavigation.setColored(true);
 
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
                 viewPager.setCurrentItem(position, false);
-                if (position == 2) {
+                if (position == 0) {
                     fab.show();
                 } else {
                     fab.hide();
@@ -86,18 +127,6 @@ public class HomeActivity extends AppCompatActivity
                 return true;
             }
         });
-
-        ImageView userImageView = (ImageView) findViewById(R.id.userImageView);
-        TextView userNameView = (TextView) findViewById(R.id.userNameTextView);
-        TextView userEmail = (TextView) findViewById(R.id.userEmail);
-        if (currentUser.getPhoto().isEmpty()) {
-            userImageView.setImageResource(R.drawable.ic_user);
-        } else {
-            Picasso.with(this).load(currentUser.getPhoto()).into(userImageView);
-
-        }
-        userNameView.setText(currentUser.getName());
-        userEmail.setText(currentUser.getEmail());
 
 
     }
